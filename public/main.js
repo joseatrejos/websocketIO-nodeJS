@@ -7,22 +7,27 @@ socket.on('dataReceived', function(data){
 });
 
 function renderDataInFrontEnd(data) {
-    var html = `<div>
-                    Author: <strong>${data.author}</strong>
-                    <p>Text: ${data.text}</p>
-                </div>`;
+    var html = data
+    .map(function (elem, index) {
+      return `<div>
+              <strong>${elem.username}</strong>:
+              <em>${elem.text}</em>
+            </div>`;
+    })
+    .join(" ");
 
     document.getElementById('websocketData').innerHTML = html;
 }
 
 function sendDataToServer(e) {
     // Grab the data from the form
-    var request = {
-        author: document.getElementById('username').value,
-        text: document.getElementById('text').value
-    };
+    let username = document.getElementById("username").value
+    let text = document.getElementById("text").value;
 
     // Send the data to the server with socket.io's emit method
-    socket.emit('dataToServer', request);
+    socket.emit("dataToServer", {
+        username,
+        text
+    });
     return false;
 }
