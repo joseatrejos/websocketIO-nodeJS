@@ -16,7 +16,6 @@ function renderDataInFrontEnd(data) {
 }
 
 function sendDataToServer(e) {
-
     // Grab the data from the form
     var request = {
         author: document.getElementById('username').value,

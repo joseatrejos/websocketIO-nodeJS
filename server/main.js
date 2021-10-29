@@ -12,8 +12,8 @@ io.on('connection', function(socket) {
     // The first here parameter is the event's name (as it is received by the client)
     socket.emit('dataReceived', {
         id: 1,
-        text: 'Bienvenido al chat privado',
-        author: 'Administrador',
+        text: 'Welcome to the websocket',
+        author: 'Admin',
     });
 
     // Now we will listen for data that's sent from the frontend to the server
