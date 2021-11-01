@@ -1,4 +1,4 @@
-var socket = io.connect( "http://localhost:8080", {'forceNew':true} );
+var socket = io.connect( "http://localhost:8000", {'forceNew':true} );
 
 // Here we call the event name 'dataReceived' that we defined in the server's backend with socket IO's emit method
 socket.on('dataReceived', function(data){
